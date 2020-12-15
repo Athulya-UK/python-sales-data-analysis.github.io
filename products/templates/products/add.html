@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}add purchase{% endblock title %}
+{% block content %}
+{% if added_message %}
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <strong>{{added_message}}</strong> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>   
+    {% endif %}
+<div class="container p-3 mx-md-n3   bg-dark text-warning">
+      <br>
+  <h2><center>Add Purchase Details Data</center></h2>
+  <br>
+  <center>
+<form action="" method="POST" class="text-white">
+  {% csrf_token %}
+  <table>
+   
+{{ form.as_table }}
+
+</table>
+<br>
+<button type="submit" class="btn btn-warning">Save</button>
+</form>
+</center>
+<br><br><br><br><br><br><br><br><br>
+</div>
+{% endblock content %}

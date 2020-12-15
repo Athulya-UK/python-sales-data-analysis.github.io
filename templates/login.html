@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}add purchase{% endblock title %}
+{% block content %}
+{% if error_message %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{error_message}}</strong> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>   
+    {% endif %}
+<div class="container p-3 mx-md-n3   bg-dark text-warning">
+  <br>
+<h2><center>Login </center></h2>
+  <br>
+  <center>
+<form action="" method="POST" class="text-white">{% csrf_token %}
+{{form.as_p}}
+<button type="submit" class="btn btn-warning">Login</button>
+</form>
+</center>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  </div>
+{% endblock content %}

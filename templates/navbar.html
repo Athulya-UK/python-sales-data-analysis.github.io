@@ -1,0 +1,55 @@
+{% url 'home' as path_to_home %}
+{% url 'login' as path_to_login %}
+{% url 'products:main-products-view' as path_to_performance %}
+{% url 'products:count_daily_product' as path_to_daily_pcount %}
+{% url 'products:dashboard-view' as path_to_dashboard_view %}
+{% url 'products:top-view' as path_to_top_view %}
+{% url 'products:low-view' as path_to_low_view %}
+{% url 'products:top-branch-view' as path_to_top_branch %}
+{% url 'products:low-branch-view' as path_to_low_branch %}
+{% url 'products:add-purchase-view' as path_to_adding_records %}
+{% url 'csvs:upload-view' as upload_file_view %}
+{% url 'products:summary-view' as path_to_summary_view %}
+
+
+<div class="sidenav">
+  {% if request.user.is_authenticated %}
+  <div>
+ <a href={{path_to_dashboard_view}} class="{% if request.path == path_to_dashboard_view %}active{% endif %}">Dashboard</a>
+</div>
+ <hr class="new1">
+    
+    <div>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Company Performance
+          </a>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href={{path_to_top_view}} class="{% if request.path ==  path_to_top_view %}active{% endif %}">Top Performer</a>
+        <a class="dropdown-item" href={{path_to_low_view}} class="{% if request.path == path_to_low_view %}active{% endif %}">Low Performer</a>
+        <a class="dropdown-item" href={{path_to_top_branch}} class="{% if request.path == path_to_top_branch %}active{% endif %}">Top Performance Branch </a>
+        <a class="dropdown-item" href={{path_to_low_branch}} class="{% if request.path == path_to_low_branch %}active{% endif %}">Low Performance Branch</a>
+      </div>
+    </div>
+    <hr class="new1">
+    <div>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             Performance
+          </a>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href={{path_to_performance}} class="{% if request.path == path_to_performance %}active{% endif %}">Sales Performance</a>
+        <a class="dropdown-item" href={{path_to_daily_pcount}} class="{% if request.path == path_to_daily_pcount %}active{% endif %}">Daily Product Sold</a>
+      </div>
+    </div>
+    <hr class="new1">
+    <a href={{path_to_adding_records}} class="{% if request.path == path_to_adding_records %}active{% endif %}">Add Records</a>
+    <a href={{upload_file_view}} class="{% if request.path == upload_file_view %}active{% endif %}">Upload file</a>
+    
+    <a href="{% url 'logout' %}">Logout</a>
+  </div>
+  
+{% else %}
+
+  <a href={{path_to_login}} class="{% if request.path == path_to_login %}active{% endif %}">Login</a>
+
+{% endif %}
+</div>

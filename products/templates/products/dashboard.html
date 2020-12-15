@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block title %}add purchase{% endblock title %}
+{% block content %}
+<div class="container p-3 mx-md-n3 bg-dark text-warning">
+<h1>Dashboard&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-warning btn-md" data-toggle="modal" data-target="#myModal">See Summary</button>
+</h1>
+</div>
+   <br>
+<div class="container">
+    <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Total Price data</h3>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+         <ul>
+             
+             <li><strong>Count: </strong>{{total_price.count}}</li>
+             <li><strong>Mean: </strong>{{total_price.mean|floatformat}}</li>
+             <li><strong>Median: </strong>{{total_price.median}}</li>
+             <li><strong>Std dev: </strong>{{total_price.std|floatformat}}</li>
+             <li><strong>Max: </strong>{{total_price.max}}</li>
+             <li><strong>Min: </strong>{{total_price.min}}</li>
+         </ul>
+        </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+    <div class="container p-3 mx-md-n3 mb=2 bg-dark text-white">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="card-header bg-secondary text-white" style="width: 41rem;">
+                Branch with Totalprice Overview
+              </div>
+            
+            <div class="card" style="width: 41rem;">
+                <img src="data:image/png;base64, {{ graph1 |safe }}" height="350" width="600">
+            </div>
+          </div>
+        <div class="col-sm-4">
+              <div class="card-header bg-secondary text-white" style="width: 20rem;">
+                  Revenue Sources
+                </div>
+              <div class="card" style="width: 20rem;">
+                  <img src="data:image/png;base64, {{ graph2 |safe }}" height="350" width="310">
+              </div>
+            </div>
+          </div>
+      <br/>
+      <div class="row">
+        <div class="col-sm-8">
+            <div class="card-header bg-secondary text-white" style="width: 41rem;">
+                Earning Overview(past 5 years)
+              </div>
+            <div class="card" style="width: 41rem;">
+                <img src="data:image/png;base64, {{ graph3 |safe }}" height="350" width="auto">
+            </div>
+          </div>
+        <div class="col-sm-4">
+              <div class="card-header bg-secondary text-white" style="width: 20rem;">
+                  Trending Products
+                </div>
+              <div class="card" style="width: 20rem;">
+                  <img src="data:image/png;base64, {{ graph4 |safe }}" height="350" width="auto">
+              </div>
+            </div>
+          </div>
+    </div>
+    </div>
+{% endblock content %}

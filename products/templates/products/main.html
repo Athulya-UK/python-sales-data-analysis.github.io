@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}Sales_Performance{% endblock title %}
+{% block content %}
+<div class="container p-3 mx-md-n3   bg-dark text-white">
+    <br>
+<h2>Display Revenue Source According to the Date and Chart Selected</h2>
+<br>
+{% if error_message %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{error_message}}</strong> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>   
+    {% endif %}
+    {% if request.POST %}
+        {% if graph %}
+            <img src="data:image/png;base64, {{graph|safe}}">
+        {% endif %}
+    {% endif %}
+    <div>
+<form action="" method="POST" class="simpleform">
+    
+    {% csrf_token %}
+        <div class="form-group">
+            <label>Choose a chart type:</label>
+            <select class="form-control" name="sales" id="salesid">
+                <option></option>
+                <option value="bar plot">bar plot</option>
+                <option value="line plot">line plot</option>
+            </select>
+        </div>
+        <div class="row">
+            <div class="col-lg">
+                <div class="form-group">
+                    <label>Date From</label>
+                    <input type="date" class="form-control" name="date_from" >
+                </div>
+            </div>
+            <div class="col-lg">
+                <div class="form-group">
+                    <label>Date To</label>
+                    <input type="date" class="form-control" name="date_to">
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-warning button" type="submit">Select</button>
+    </form>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br>
+</div>
+{% endblock content %}

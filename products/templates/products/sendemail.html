@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Sales_Performance{% endblock title %}
+{% block content %}
+<div class="container p-3 mx-md-n3   bg-dark text-white">
+<h2>Sending Mail</h2>
+<form action="" method="POST">
+    
+    {% csrf_token %}
+        
+                <div class="form-group">
+                    <label>Subject</label>
+                    <input type="text" class="form-control" name="subject" >
+                </div>
+            
+                <div class="form-group">
+                    <label>Email content</label>
+                    <textarea class="form-control" rows="6" name="body"></textarea>
+                  </div>
+           
+        <button class="btn btn-warning button" type="submit">Send</button>
+    </form>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Performance{% endblock title %}
+{% block content %}
+<div class="container p-3 mx-md-n3 my-2  bg-dark text-warning">
+    <h3>Low 3 Performer of the Company&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={% url 'products:send-email-low-view' %}><button type="submit" class="btn btn-warning">send Email</button></a>
+    </h3>
+    </div>
+{% if graph %}
+<div class="container p-3 mx-md-n3 bg-dark text-warning">
+    <img src="data:image/png;base64, {{graph|safe}}" height="490" width="1030" >
+</div>
+{% endif %}
+{% endblock content %}
